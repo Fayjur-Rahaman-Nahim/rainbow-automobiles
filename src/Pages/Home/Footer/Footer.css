@@ -1,0 +1,26 @@
+.custom{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.facebook:hover{
+    background-color: rgb(72, 140, 241);
+    transition: .5s;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.twitter:hover{
+    background-color: rgb(110, 189, 241);
+    transition: .5s;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.google:hover{
+    background-color: rgb(252, 102, 102);
+    transition: .5s;
+    padding: 10px;
+    border-radius: 10px;
+
+}

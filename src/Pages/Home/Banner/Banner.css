@@ -1,0 +1,8 @@
+.backgroundimg{
+    background-image: url("../../../Images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   background-position: center;
+   height: 400px;
+
+}
