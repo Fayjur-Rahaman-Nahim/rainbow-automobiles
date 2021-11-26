@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getIdToken, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getIdToken, updateProfile, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import firebaseInitialize from "../Pages/Login/Firebase/firebase.init"
 
 firebaseInitialize();
@@ -19,6 +19,13 @@ const useFirebase = () => {
             .then(() => {
                 const newUser = { email, displayName: name };
                 setUser(newUser);
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                })
+                    .then(() => {
+                    })
+                    .catch((error) => {
+                    });
                 const destination = location?.state?.from || '/';
                 history.push(destination);
                 saveUser(email, name, 'POST');
@@ -52,6 +59,7 @@ const useFirebase = () => {
                 const user = result.user;
                 setUser(user);
                 saveUser(user.email, user.displayName, 'PUT');
+
                 const destination = location?.state?.from || '/';
                 history.push(destination);
                 setError('');
